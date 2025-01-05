@@ -1,4 +1,4 @@
 (executables
- (public_names b1)
- (names b1)
+ (public_names b1 b2)
+ (names b1 b2)
  (libraries ocaml_beginning))
