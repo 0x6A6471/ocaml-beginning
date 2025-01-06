@@ -19,7 +19,12 @@
  (name ocaml_beginning)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml ocaml-lsp-server ocamlformat)
+ (depends 
+   ocaml 
+   ; testing
+   alcotest
+   ; dev tools
+   ocaml-lsp-server ocamlformat)
  (tags
   ("add topics" "to describe" your project)))
 

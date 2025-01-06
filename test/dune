@@ -1,2 +1,4 @@
 (test
- (name test_ocaml_beginning))
+ (name test_main)
+ (libraries alcotest chapter02 chapter03))
+

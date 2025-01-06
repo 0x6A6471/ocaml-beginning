@@ -1,0 +1,3 @@
+(library
+ (name chapter02)
+ (modules b1 b2))
