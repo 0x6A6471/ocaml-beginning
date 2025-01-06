@@ -1,3 +1,0 @@
-(executables
- (public_names b1 b2 b3)
- (names b1 b2 b3))

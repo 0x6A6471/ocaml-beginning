@@ -19,6 +19,7 @@
  (name ocaml_beginning)
  (synopsis "A short synopsis")
  (description "A longer description")
+ (allow_empty)
  (depends 
    ocaml 
    ; testing
