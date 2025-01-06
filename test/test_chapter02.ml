@@ -1,6 +1,5 @@
 open Chapter02
 
-(* The tests *)
 let test_b1 () =
   let expected = 100 in
   let actual = B1.multiply_10 10 in
