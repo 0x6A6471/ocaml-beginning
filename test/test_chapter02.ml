@@ -27,11 +27,20 @@ let test_b4 () =
   Alcotest.(check int) "power 5 5" 3125 (B4.power 5 5)
 ;;
 
+let test_b5 () =
+  Alcotest.(check bool) "is_consonant a" false (B5.is_consonant 'a');
+  Alcotest.(check bool) "is_consonant x" true (B5.is_consonant 'x')
+;;
+
+let test_b6 () = Alcotest.(check int) "is_consonant a" 4 B6.add_x
+
 let tests =
   let open Alcotest in
   [ test_case "mulitply" `Quick test_b1
   ; test_case "non_zeros" `Quick test_b2
   ; test_case "sum" `Quick test_b3
   ; test_case "power" `Quick test_b4
+  ; test_case "is_consonant" `Quick test_b5
+  ; test_case "add_x" `Quick test_b6
   ]
 ;;
