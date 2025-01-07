@@ -32,7 +32,14 @@ let test_b5 () =
   Alcotest.(check bool) "is_consonant x" true (B5.is_consonant 'x')
 ;;
 
-let test_b6 () = Alcotest.(check int) "is_consonant a" 4 B6.add_x
+let test_b6 () = Alcotest.(check int) "add_x" 4 B6.add_x
+
+let test_b7 () =
+  Alcotest.(check int) "fact 0" 1 (B7.fact 0);
+  Alcotest.(check int) "fact 1" 1 (B7.fact 1);
+  Alcotest.(check int) "fact 5" 120 (B7.fact 5);
+  Alcotest.(check int) "fact -5" (-120) (B7.fact (-5))
+;;
 
 let tests =
   let open Alcotest in
@@ -42,5 +49,6 @@ let tests =
   ; test_case "power" `Quick test_b4
   ; test_case "is_consonant" `Quick test_b5
   ; test_case "add_x" `Quick test_b6
+  ; test_case "fact" `Quick test_b7
   ]
 ;;
