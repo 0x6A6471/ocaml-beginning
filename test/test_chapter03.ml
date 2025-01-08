@@ -18,10 +18,13 @@ let test_c3 () =
   Alcotest.(check int) "power 5 5" 3125 (C3.power 5 5)
 ;;
 
+let test_c5 () = Alcotest.(check int) "run" 5 C5.run
+
 let tests =
   let open Alcotest in
   [ test_case "not" `Quick test_c1
   ; test_case "sum" `Quick test_c2
   ; test_case "power" `Quick test_c3
+  ; test_case "run" `Quick test_c5
   ]
 ;;
