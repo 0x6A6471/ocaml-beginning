@@ -20,7 +20,6 @@ let test_b3 () =
 
 let test_b4 () =
   Alcotest.(check int) "power 0 1" 0 (B4.power 0 1);
-  Alcotest.(check int) "power 0 1" 0 (B4.power 0 1);
   Alcotest.(check int) "power 2 0" 1 (B4.power 2 0);
   Alcotest.(check int) "power 1 1" 1 (B4.power 1 1);
   Alcotest.(check int) "power 2 2" 4 (B4.power 2 2);
