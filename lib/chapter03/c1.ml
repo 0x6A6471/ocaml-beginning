@@ -1,1 +1,5 @@
-let multiply x = x * x
+let not x =
+  match x with
+  | true -> false
+  | false -> true
+;;
