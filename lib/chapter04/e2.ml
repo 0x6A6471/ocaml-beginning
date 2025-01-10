@@ -11,7 +11,7 @@ let count_true' lst =
   let rec aux count = function
     | [] -> count
     | true :: tl -> aux (count + 1) tl
-    | false :: tl -> aux 0 tl
+    | false :: tl -> aux count tl
   in
   aux 0 lst
 ;;
