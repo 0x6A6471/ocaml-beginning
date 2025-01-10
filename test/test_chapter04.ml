@@ -10,12 +10,9 @@ let test_e2 () =
 ;;
 
 let test_e3 () =
+  Alcotest.(check bool) "is_palindrome ['a'; 'b'; 'c']" false (E3.is_palindrome [ 'a'; 'b'; 'c' ]);
   Alcotest.(check bool)
-    "is_palindrome ['a'; 'b'; 'c'; 'b'; 'a']"
-    false
-    (E3.is_palindrome [ 'a'; 'b'; 'c' ]);
-  Alcotest.(check bool)
-    "is_palindrome ['a'; 'b'; 'c']"
+    "is_palindrome ['a'; 'b'; 'c'; 'd'; 'e']"
     true
     (E3.is_palindrome [ 'a'; 'b'; 'c'; 'b'; 'a' ])
 ;;
