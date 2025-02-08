@@ -21,11 +21,17 @@ let test_e4 () =
   Alcotest.(check (list int)) "drop_last [1; 2; 4; 8]" [ 1; 2; 4 ] (E4.drop_last [ 1; 2; 4; 8 ])
 ;;
 
+let test_e5 () =
+  Alcotest.(check bool) "member 2 [1; 2; 3]" true (E5.member 2 [ 1; 2; 3 ]);
+  Alcotest.(check bool) "member 3 [1; 2]" false (E5.member 3 [ 1; 2 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "evens" `Quick test_e1
   ; test_case "count_true" `Quick test_e2
   ; test_case "is_palindrome" `Quick test_e3
   ; test_case "drop_last" `Quick test_e4
+  ; test_case "member" `Quick test_e5
   ]
 ;;
