@@ -26,6 +26,10 @@ let test_e5 () =
   Alcotest.(check bool) "member 3 [1; 2]" false (E5.member 3 [ 1; 2 ])
 ;;
 
+let test_e6 () =
+  Alcotest.(check (list int)) "make_set [1; 2; 3; 3; 1]" [ 2; 3; 1 ] (E6.make_set [ 1; 2; 3; 1 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "evens" `Quick test_e1
@@ -33,5 +37,6 @@ let tests =
   ; test_case "is_palindrome" `Quick test_e3
   ; test_case "drop_last" `Quick test_e4
   ; test_case "member" `Quick test_e5
+  ; test_case "make_set" `Quick test_e6
   ]
 ;;
