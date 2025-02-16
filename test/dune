@@ -1,4 +1,4 @@
 (test
  (name test_main)
- (libraries alcotest chapter02 chapter03 chapter04))
+ (libraries alcotest chapter02 chapter03 chapter04 chapter06))
 
