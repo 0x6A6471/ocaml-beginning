@@ -17,7 +17,17 @@ let test_e2 () =
     (E2.cliplist [ 1; 5; 0; 12; 3 ])
 ;;
 
+let test_e3 () =
+  Alcotest.(check (list int))
+    "cliplist' [1; 5; 0; 12; 3]"
+    [ 1; 5; 1; 10; 3 ]
+    (E3.cliplist' [ 1; 5; 0; 12; 3 ])
+;;
+
 let tests =
   let open Alcotest in
-  [ test_case "calm" `Quick test_e1; test_case "clip" `Quick test_e2 ]
+  [ test_case "calm" `Quick test_e1
+  ; test_case "cliplist" `Quick test_e2
+  ; test_case "cliplist'" `Quick test_e3
+  ]
 ;;
