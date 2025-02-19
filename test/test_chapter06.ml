@@ -26,11 +26,19 @@ let test_e3 () =
 
 let test_e4 () = Alcotest.(check int) "apply add_one 6 4" 10 (E4.apply E4.add_one 6 4)
 
+let test_e6 () =
+  Alcotest.(check (list int))
+    "filter evens [1; 2; 3]"
+    [ 2 ]
+    (E6.filter (fun x -> x mod 2 = 0) [ 1; 2; 3 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "calm" `Quick test_e1
   ; test_case "cliplist" `Quick test_e2
   ; test_case "cliplist'" `Quick test_e3
   ; test_case "apply" `Quick test_e4
+  ; test_case "filter" `Quick test_e6
   ]
 ;;
