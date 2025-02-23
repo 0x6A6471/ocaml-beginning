@@ -33,6 +33,11 @@ let test_e6 () =
     (E6.filter (fun x -> x mod 2 = 0) [ 1; 2; 3 ])
 ;;
 
+let test_e7 () =
+  Alcotest.(check bool) "for_all is_even [1; 2; 3]" false (E7.for_all E7.is_even [ 1; 2; 3 ]);
+  Alcotest.(check bool) "for_all is_even [4; 2; 6]" true (E7.for_all E7.is_even [ 4; 2; 6 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "calm" `Quick test_e1
@@ -40,5 +45,6 @@ let tests =
   ; test_case "cliplist'" `Quick test_e3
   ; test_case "apply" `Quick test_e4
   ; test_case "filter" `Quick test_e6
+  ; test_case "for_all" `Quick test_e7
   ]
 ;;
