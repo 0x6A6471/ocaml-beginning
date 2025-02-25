@@ -38,6 +38,13 @@ let test_e7 () =
   Alcotest.(check bool) "for_all is_even [4; 2; 6]" true (E7.for_all E7.is_even [ 4; 2; 6 ])
 ;;
 
+let test_e8 () =
+  Alcotest.(check (list (list int)))
+    "mapl add_one [[1; 2; 4] ; [3; 4]; []]"
+    [ [ 2; 3; 5 ]; [ 4; 5 ]; [] ]
+    (E8.mapl E8.add_one [ [ 1; 2; 4 ]; [ 3; 4 ]; [] ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "calm" `Quick test_e1
@@ -46,5 +53,6 @@ let tests =
   ; test_case "apply" `Quick test_e4
   ; test_case "filter" `Quick test_e6
   ; test_case "for_all" `Quick test_e7
+  ; test_case "mapl" `Quick test_e8
   ]
 ;;
