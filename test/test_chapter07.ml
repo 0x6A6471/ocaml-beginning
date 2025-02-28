@@ -13,7 +13,17 @@ let test_e2 () =
   Alcotest.(check int) "smallest_or_zero [-1; -2]" 0 (E2.smallest_or_zero [ -1; -2 ])
 ;;
 
+let test_e3 () =
+  Alcotest.(check int) "largest_int_sqrt 25" 5 (E3.largest_int_sqrt 25);
+  Alcotest.(check int) "largest_int_sqrt 0" 0 (E3.largest_int_sqrt 0);
+  Alcotest.check_raises "largest_int_sqrt -5" E3.NegativeSqRt (fun () ->
+    ignore (E3.largest_int_sqrt (-5)))
+;;
+
 let tests =
   let open Alcotest in
-  [ test_case "smallest" `Quick test_e1; test_case "smallest_or_zero" `Quick test_e2 ]
+  [ test_case "smallest" `Quick test_e1
+  ; test_case "smallest_or_zero" `Quick test_e2
+  ; test_case "largest_int_sqrt" `Quick test_e3
+  ]
 ;;
