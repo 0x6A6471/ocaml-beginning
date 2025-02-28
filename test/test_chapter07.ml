@@ -20,10 +20,17 @@ let test_e3 () =
     ignore (E3.largest_int_sqrt (-5)))
 ;;
 
+let test_e4 () =
+  Alcotest.(check int) "largest_int_or_zero 25" 5 (E4.largest_int_or_zero 25);
+  Alcotest.(check int) "largest_int_or_zero 0" 0 (E4.largest_int_or_zero 0);
+  Alcotest.(check int) "largest_int_sqrt -5" 0 (E4.largest_int_or_zero (-5))
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "smallest" `Quick test_e1
   ; test_case "smallest_or_zero" `Quick test_e2
   ; test_case "largest_int_sqrt" `Quick test_e3
+  ; test_case "largest_int_or_zero" `Quick test_e4
   ]
 ;;
