@@ -37,11 +37,19 @@ let test_e5 () =
   Alcotest.(check bool) "[3; 1] < [2; 1]" false ([ 3; 1 ] < [ 2; 1 ])
 ;;
 
+let test_e6 () =
+  Alcotest.(check (list int))
+    "insertion_sort [10; 3; 5; 2; 1]"
+    [ 10; 5; 3; 2; 1 ]
+    (E6.insertion_sort [ 10; 3; 5; 2; 1 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "msort" `Quick test_e1
   ; test_case "insertion_sort" `Quick test_e3
   ; test_case "sorted" `Quick test_e4
   ; test_case "lst_comp" `Quick test_e5
+  ; test_case "insertion_sort" `Quick test_e6
   ]
 ;;
