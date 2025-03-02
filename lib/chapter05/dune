@@ -1,3 +1,3 @@
 (library
  (name chapter05)
- (modules e1 e4))
+ (modules e1 e3 e4))

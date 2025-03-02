@@ -7,6 +7,13 @@ let test_e1 () =
     (E1.msort [ 53; 9; 2; 6; 19 ])
 ;;
 
+let test_e3 () =
+  Alcotest.(check (list int))
+    "insertion_sort [10; 3; 5; 2; 1]"
+    [ 10; 5; 3; 2; 1 ]
+    (E3.insertion_sort [ 10; 3; 5; 2; 1 ])
+;;
+
 let test_e4 () =
   Alcotest.(check bool) "sorted []" true (E4.sorted []);
   Alcotest.(check bool) "sorted [1; 2; 3]" true (E4.sorted [ 1; 2; 3 ]);
@@ -27,5 +34,8 @@ let test_e4 () =
 
 let tests =
   let open Alcotest in
-  [ test_case "msort" `Quick test_e1; test_case "sorted" `Quick test_e4 ]
+  [ test_case "msort" `Quick test_e1
+  ; test_case "insertion_sort" `Quick test_e3
+  ; test_case "sorted" `Quick test_e4
+  ]
 ;;
