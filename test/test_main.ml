@@ -8,5 +8,6 @@ let () =
     ; "Chapter05 Tests", Test_chapter05.tests
     ; "Chapter06 Tests", Test_chapter06.tests
     ; "Chapter07 Tests", Test_chapter07.tests
+    ; "Chapter08 Tests", Test_chapter08.tests
     ]
 ;;
