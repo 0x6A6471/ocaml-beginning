@@ -18,7 +18,17 @@ let test_e2 () =
     (fun () -> ignore (E2.replace 1 2 [ 2, 3; 4, 4; 3, 2 ]))
 ;;
 
+let test_e3 () =
+  Alcotest.(check (list (pair int char)))
+    "dict_create [1; 2; 3] ['a'; 'b'; 'c']"
+    [ 1, 'a'; 2, 'b'; 3, 'c' ]
+    (E3.dict_create [ 1; 2; 3 ] [ 'a'; 'b'; 'c' ])
+;;
+
 let tests =
   let open Alcotest in
-  [ test_case "diff_keys" `Quick test_e1; test_case "replace" `Quick test_e2 ]
+  [ test_case "diff_keys" `Quick test_e1
+  ; test_case "replace" `Quick test_e2
+  ; test_case "dic_create" `Quick test_e3
+  ]
 ;;
