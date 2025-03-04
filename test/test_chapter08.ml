@@ -32,11 +32,23 @@ let test_e4 () =
     (E4.get_dict_values [ 1, 'a'; 2, 'b'; 3, 'c' ])
 ;;
 
+let test_e5 () =
+  Alcotest.(check (list (pair int int)))
+    "create_dict [ (1, 1); (2, 2); (3, 3) ]"
+    [ 1, 1; 2, 2; 3, 3 ]
+    (E5.create_dict [ 1, 1; 2, 2; 3, 3 ]);
+  Alcotest.(check (list (pair int int)))
+    "create_dict [ (1, 1); (2, 2); (2, 3) ]"
+    [ 1, 1; 2, 2 ]
+    (E5.create_dict [ 1, 1; 2, 2; 2, 3 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "diff_keys" `Quick test_e1
   ; test_case "replace" `Quick test_e2
   ; test_case "dict_create" `Quick test_e3
   ; test_case "get_dict_values" `Quick test_e4
+  ; test_case "create_dict" `Quick test_e5
   ]
 ;;
