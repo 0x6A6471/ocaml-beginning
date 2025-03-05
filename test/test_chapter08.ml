@@ -43,6 +43,17 @@ let test_e5 () =
     (E5.create_dict [ 1, 1; 2, 2; 2, 3 ])
 ;;
 
+let test_e6 () =
+  Alcotest.(check (list (pair int int)))
+    "union [(1, 1); (2, 2)] [(3, 3); (4, 4)]"
+    [ 1, 1; 2, 2; 3, 3; 4, 4 ]
+    (E6.union [ 1, 1; 2, 2 ] [ 3, 3; 4, 4 ]);
+  Alcotest.(check (list (pair int int)))
+    "union [(1, 1); (2, 2)] [(3, 3); (1, 4)]"
+    [ 1, 1; 2, 2; 3, 3 ]
+    (E6.union [ 1, 1; 2, 2 ] [ 3, 3; 1, 4 ])
+;;
+
 let tests =
   let open Alcotest in
   [ test_case "diff_keys" `Quick test_e1
@@ -50,5 +61,6 @@ let tests =
   ; test_case "dict_create" `Quick test_e3
   ; test_case "get_dict_values" `Quick test_e4
   ; test_case "create_dict" `Quick test_e5
+  ; test_case "union" `Quick test_e6
   ]
 ;;
